@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://btcajkgkr10kv"]
+
+[ext_resource type="Theme" uid="uid://5etlqyt3e5qx" path="res://shoptheme.tres" id="1_3x0bm"]
+[ext_resource type="Texture2D" uid="uid://bo1rh1q3w0l7x" path="res://assets/images/gas.png" id="2_3bus8"]
+[ext_resource type="Script" path="res://scripts/shopcheckbox.gd" id="3_avll0"]
+
+[node name="ShopItem" type="CheckBox"]
+theme = ExtResource("1_3x0bm")
+text = "gas"
+icon = ExtResource("2_3bus8")
+icon_alignment = 2
+script = ExtResource("3_avll0")
+
+[node name="Pricetag" type="Label" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_right = 65.0
+offset_bottom = 16.0
+theme = ExtResource("1_3x0bm")
+text = "200g"
+horizontal_alignment = 1
+vertical_alignment = 1

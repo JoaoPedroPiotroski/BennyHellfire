@@ -1,0 +1,37 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://5etlqyt3e5qx"]
+
+[ext_resource type="FontFile" uid="uid://bs7lguwppcjty" path="res://assets/smol.ttf" id="1_seamw"]
+[ext_resource type="Texture2D" uid="uid://bfmgdpuhk2iwb" path="res://assets/images/checkboxcheck.png" id="2_3e1m3"]
+[ext_resource type="Texture2D" uid="uid://d1ntg6m3q4r65" path="res://assets/images/checkboxuncheck.png" id="3_gryu1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ri3fv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u8xi8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fham"]
+bg_color = Color(0.376471, 0.317647, 0.317647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1o3h"]
+bg_color = Color(0.631373, 0.552941, 0.552941, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x54r2"]
+content_margin_left = 2.0
+
+[resource]
+Button/font_sizes/font_size = 4
+Button/fonts/font = ExtResource("1_seamw")
+Button/styles/focus = SubResource("StyleBoxEmpty_ri3fv")
+Button/styles/normal = SubResource("StyleBoxEmpty_u8xi8")
+CheckBox/colors/font_focus_color = Color(1, 1, 0.545098, 1)
+CheckBox/constants/h_separation = 1
+CheckBox/font_sizes/font_size = 4
+CheckBox/fonts/font = ExtResource("1_seamw")
+CheckBox/icons/checked = ExtResource("2_3e1m3")
+CheckBox/icons/checked_disabled = ExtResource("3_gryu1")
+CheckBox/icons/unchecked = ExtResource("3_gryu1")
+CheckBox/styles/focus = SubResource("StyleBoxFlat_6fham")
+CheckBox/styles/normal = SubResource("StyleBoxFlat_q1o3h")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_q1o3h")
+Label/font_sizes/font_size = 4
+Label/fonts/font = ExtResource("1_seamw")
+Label/styles/normal = SubResource("StyleBoxEmpty_x54r2")

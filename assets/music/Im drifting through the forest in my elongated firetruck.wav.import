@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://185burggge7g"
+path="res://.godot/imported/Im drifting through the forest in my elongated firetruck.wav-9773e2a82ea6514f774ccc8bbabf150e.sample"
+
+[deps]
+
+source_file="res://assets/music/Im drifting through the forest in my elongated firetruck.wav"
+dest_files=["res://.godot/imported/Im drifting through the forest in my elongated firetruck.wav-9773e2a82ea6514f774ccc8bbabf150e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

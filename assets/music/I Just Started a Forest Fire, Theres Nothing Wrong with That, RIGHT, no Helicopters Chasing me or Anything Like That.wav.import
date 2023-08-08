@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dno302nx6kqce"
+path="res://.godot/imported/I Just Started a Forest Fire, Theres Nothing Wrong with That, RIGHT, no Helicopters Chasing me or Anything Like That.wav-e284520670f7d8c7d84d0caa86fa5942.sample"
+
+[deps]
+
+source_file="res://assets/music/I Just Started a Forest Fire, Theres Nothing Wrong with That, RIGHT, no Helicopters Chasing me or Anything Like That.wav"
+dest_files=["res://.godot/imported/I Just Started a Forest Fire, Theres Nothing Wrong with That, RIGHT, no Helicopters Chasing me or Anything Like That.wav-e284520670f7d8c7d84d0caa86fa5942.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

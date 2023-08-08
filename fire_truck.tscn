@@ -1,0 +1,140 @@
+[gd_scene load_steps=8 format=3 uid="uid://cv0cbk1ms63ac"]
+
+[ext_resource type="Texture2D" uid="uid://cbmbcp7x1pc6o" path="res://assets/images/firetruck.png" id="1_c3dfu"]
+[ext_resource type="Script" path="res://scripts/fire_truck.gd" id="1_w3bhb"]
+
+[sub_resource type="Animation" id="Animation_yvbyk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_5sn4e"]
+resource_name = "moving"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_3ymu7"]
+resource_name = "preparing"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ox1r0"]
+_data = {
+"RESET": SubResource("Animation_yvbyk"),
+"moving": SubResource("Animation_5sn4e"),
+"preparing": SubResource("Animation_3ymu7")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_reday"]
+size = Vector2(181, 10)
+
+[node name="FireTruck" type="CharacterBody2D"]
+z_index = 1
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_w3bhb")
+positions = Array[Vector2]([Vector2(-8, 0), Vector2(0, 0), Vector2(8, 0), Vector2(16, 0)])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_c3dfu")
+centered = false
+hframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "moving"
+libraries = {
+"": SubResource("AnimationLibrary_ox1r0")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(36.5, 5)
+shape = SubResource("RectangleShape2D_reday")
+
+[node name="StreamSpawns" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="StreamSpawns"]
+position = Vector2(8, 12)
+scale = Vector2(-1.456, 1)
+
+[node name="Marker2D2" type="Marker2D" parent="StreamSpawns"]
+position = Vector2(24, 12)
+scale = Vector2(-1.456, 1)
+
+[node name="Marker2D3" type="Marker2D" parent="StreamSpawns"]
+position = Vector2(40, 12)
+scale = Vector2(-1.456, 1)
+
+[node name="OilSpawns" type="Node2D" parent="."]
+
+[node name="Marker2D2" type="Marker2D" parent="OilSpawns"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(16, 12)
+
+[node name="Marker2D3" type="Marker2D" parent="OilSpawns"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(24, 12)
+
+[node name="Marker2D4" type="Marker2D" parent="OilSpawns"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(32, 12)
+
+[node name="Marker2D5" type="Marker2D" parent="OilSpawns"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(40, 12)
+
+[node name="Explosions" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Explosions"]
+
+[node name="Marker2D2" type="Marker2D" parent="Explosions"]
+position = Vector2(8, 0)
+
+[node name="Marker2D3" type="Marker2D" parent="Explosions"]
+position = Vector2(16, 0)
+
+[node name="Marker2D4" type="Marker2D" parent="Explosions"]
+position = Vector2(24, 0)
+
+[node name="Marker2D5" type="Marker2D" parent="Explosions"]
+position = Vector2(32, 0)
+
+[node name="Marker2D6" type="Marker2D" parent="Explosions"]
+position = Vector2(40, 0)
+
+[node name="Marker2D7" type="Marker2D" parent="Explosions"]
+position = Vector2(48, 0)

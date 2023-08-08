@@ -1,0 +1,133 @@
+[gd_scene load_steps=12 format=3 uid="uid://din545ba5awrl"]
+
+[ext_resource type="FontFile" uid="uid://bs7lguwppcjty" path="res://assets/smol.ttf" id="1_mkfd3"]
+[ext_resource type="Script" path="res://scripts/settings_menu.gd" id="1_xq5dv"]
+[ext_resource type="Texture2D" uid="uid://bhn8sk8xk143d" path="res://assets/images/grabber.png" id="2_kofyx"]
+[ext_resource type="Texture2D" uid="uid://b37dwspwnqstm" path="res://assets/images/grabberhl.png" id="4_sajv1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wuysv"]
+font = ExtResource("1_mkfd3")
+font_size = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_utoxo"]
+grow_begin = 0.0
+grow_end = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_02m3m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xsm0s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k5o2y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i1r1d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lsfj0"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xq5dv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4, 0.270588, 0.270588, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -24.0
+offset_right = 20.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="fx" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/fx"]
+layout_mode = 2
+text = "sfx  "
+label_settings = SubResource("LabelSettings_wuysv")
+vertical_alignment = 1
+
+[node name="fx_slider" type="HSlider" parent="VBoxContainer/fx"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../../Backb")
+focus_neighbor_top = NodePath("../../Backb")
+focus_neighbor_right = NodePath("../../music/mus_slider")
+focus_neighbor_bottom = NodePath("../../music/mus_slider")
+focus_next = NodePath("../../music/mus_slider")
+focus_previous = NodePath("../../Backb")
+theme_override_icons/grabber = ExtResource("2_kofyx")
+theme_override_icons/grabber_highlight = ExtResource("4_sajv1")
+theme_override_icons/grabber_disabled = ExtResource("2_kofyx")
+theme_override_styles/slider = SubResource("StyleBoxLine_utoxo")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_02m3m")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_xsm0s")
+scrollable = false
+
+[node name="music" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/music"]
+layout_mode = 2
+text = "mus"
+label_settings = SubResource("LabelSettings_wuysv")
+vertical_alignment = 1
+
+[node name="mus_slider" type="HSlider" parent="VBoxContainer/music"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../../fx/fx_slider")
+focus_neighbor_top = NodePath("../../fx/fx_slider")
+focus_neighbor_right = NodePath("../../Backb")
+focus_neighbor_bottom = NodePath("../../Backb")
+focus_next = NodePath("../../Backb")
+focus_previous = NodePath("../../fx/fx_slider")
+theme_override_icons/grabber = ExtResource("2_kofyx")
+theme_override_icons/grabber_highlight = ExtResource("4_sajv1")
+theme_override_icons/grabber_disabled = ExtResource("2_kofyx")
+theme_override_styles/slider = SubResource("StyleBoxLine_utoxo")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_k5o2y")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_i1r1d")
+scrollable = false
+
+[node name="Backb" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../music/mus_slider")
+focus_neighbor_top = NodePath("../music/mus_slider")
+focus_neighbor_right = NodePath("../fx/fx_slider")
+focus_neighbor_bottom = NodePath("../fx/fx_slider")
+focus_next = NodePath("../fx/fx_slider")
+focus_previous = NodePath("../music/mus_slider")
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.94902, 0.862745, 0.172549, 1)
+theme_override_colors/font_focus_color = Color(1, 0.75, 0, 1)
+theme_override_fonts/font = ExtResource("1_mkfd3")
+theme_override_font_sizes/font_size = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lsfj0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lsfj0")
+text = "back"
+alignment = 0
+
+[connection signal="drag_ended" from="VBoxContainer/fx/fx_slider" to="." method="_on_fx_slider_drag_ended"]
+[connection signal="drag_ended" from="VBoxContainer/music/mus_slider" to="." method="_on_mus_slider_drag_ended"]
+[connection signal="button_down" from="VBoxContainer/Backb" to="." method="_on_backb_button_down"]

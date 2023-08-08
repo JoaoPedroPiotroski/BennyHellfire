@@ -1,0 +1,118 @@
+[gd_scene load_steps=7 format=3 uid="uid://dx2md7q8tqoyw"]
+
+[ext_resource type="Script" path="res://scripts/water_stream.gd" id="1_didsp"]
+[ext_resource type="Texture2D" uid="uid://qcrl5juvgjng" path="res://assets/images/waterstream.png" id="1_efdvy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01gjn"]
+size = Vector2(8, 12)
+
+[sub_resource type="Animation" id="Animation_t4bf2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:shape:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 10)]
+}
+
+[sub_resource type="Animation" id="Animation_qi8w5"]
+resource_name = "fire"
+length = 0.2
+step = 0.04
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.08, 0.12, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:shape:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.08, 0.12, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(8, 12), Vector2(8, 20), Vector2(8, 28), Vector2(8, 44), Vector2(8, 52)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.08, 0.12, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(4, 6), Vector2(4, 10), Vector2(4, 14), Vector2(4, 22), Vector2(4, 26)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y0wy5"]
+_data = {
+"RESET": SubResource("Animation_t4bf2"),
+"fire": SubResource("Animation_qi8w5")
+}
+
+[node name="WaterStream" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_didsp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_efdvy")
+centered = false
+hframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 10)
+shape = SubResource("RectangleShape2D_01gjn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "fire"
+libraries = {
+"": SubResource("AnimationLibrary_y0wy5")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

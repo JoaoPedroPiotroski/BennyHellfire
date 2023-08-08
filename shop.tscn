@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4bbe2c8y12si"]
+
+[ext_resource type="Theme" uid="uid://5etlqyt3e5qx" path="res://shoptheme.tres" id="1_ojlav"]
+[ext_resource type="Script" path="res://scripts/shop.gd" id="1_p0at4"]
+[ext_resource type="PackedScene" uid="uid://btcajkgkr10kv" path="res://shop_item.tscn" id="1_uq3pt"]
+[ext_resource type="Texture2D" uid="uid://cv0uu7ud78r3s" path="res://assets/images/newspaper.png" id="2_o5lh5"]
+[ext_resource type="Texture2D" uid="uid://dv5lb1wufx0xe" path="res://assets/images/buff_rarity.png" id="3_hs4hn"]
+[ext_resource type="FontFile" uid="uid://bs7lguwppcjty" path="res://assets/smol.ttf" id="5_slbw2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8l0o7"]
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p0at4")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
+
+[node name="ShopItem" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_uq3pt")]
+layout_mode = 2
+mouse_filter = 2
+button_mask = 0
+price = 100
+
+[node name="ShopItem2" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_uq3pt")]
+layout_mode = 2
+text = "news"
+icon = ExtResource("2_o5lh5")
+price = 250
+
+[node name="ShopItem3" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_uq3pt")]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../../../HBoxContainer/Backb")
+focus_next = NodePath("../../../HBoxContainer/Backb")
+text = "buff"
+icon = ExtResource("3_hs4hn")
+price = 500
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.00392157, 0.00392157, 0.00392157, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Backb" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../../ScrollContainer/VBoxContainer/ShopItem3")
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.94902, 0.862745, 0.172549, 1)
+theme_override_colors/font_focus_color = Color(1, 0.75, 0, 1)
+theme_override_fonts/font = ExtResource("5_slbw2")
+theme_override_font_sizes/font_size = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8l0o7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8l0o7")
+text = "back"
+alignment = 0
+
+[node name="Money" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_ojlav")
+text = "500g"
+vertical_alignment = 1
+
+[connection signal="button_down" from="HBoxContainer/Backb" to="." method="_on_backb_button_down"]

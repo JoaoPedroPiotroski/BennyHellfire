@@ -1,0 +1,130 @@
+[gd_scene load_steps=11 format=3 uid="uid://c5hf4xhuerqeg"]
+
+[ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_icsue"]
+[ext_resource type="FontFile" uid="uid://bs7lguwppcjty" path="res://assets/smol.ttf" id="1_svqyu"]
+[ext_resource type="Texture2D" uid="uid://d11t75xlkj031" path="res://assets/images/playerframe1.png" id="3_k6k2v"]
+[ext_resource type="Texture2D" uid="uid://durhrcdetsmuc" path="res://assets/images/glasses.png" id="4_34kbr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rkk10"]
+line_spacing = 2.0
+font = ExtResource("1_svqyu")
+font_size = 4
+shadow_size = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mfpn"]
+bg_color = Color(0.950882, 0.862148, 0.173012, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rb0pm"]
+bg_color = Color(0.94902, 0, 0, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="InputEventAction" id="InputEventAction_31qid"]
+action = &"pause"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_7egft"]
+events = [SubResource("InputEventAction_31qid")]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ah5oj"]
+font = ExtResource("1_svqyu")
+font_size = 4
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_icsue")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.337255, 0.337255, 0.721569, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "
+You  are  benny
+Burn  your  way
+to  victory
+WASD  /  Arrows:
+move
+Z  /  spacebar:
+Jump"
+label_settings = SubResource("LabelSettings_rkk10")
+
+[node name="Backb" type="Button" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 55.0
+offset_right = 17.0
+offset_bottom = 59.0
+focus_neighbor_left = NodePath("../music/mus_slider")
+focus_neighbor_top = NodePath("../music/mus_slider")
+focus_neighbor_right = NodePath("../fx/fx_slider")
+focus_neighbor_bottom = NodePath("../fx/fx_slider")
+focus_next = NodePath("../fx/fx_slider")
+focus_previous = NodePath("../music/mus_slider")
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.94902, 0.862745, 0.172549, 1)
+theme_override_colors/font_focus_color = Color(1, 0.75, 0, 1)
+theme_override_fonts/font = ExtResource("1_svqyu")
+theme_override_font_sizes/font_size = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_4mfpn")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rb0pm")
+shortcut = SubResource("Shortcut_7egft")
+text = "back"
+alignment = 0
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 53.0
+offset_right = 62.0
+offset_bottom = 76.0
+text = "you->"
+label_settings = SubResource("LabelSettings_ah5oj")
+
+[node name="TextureRect" type="TextureRect" parent="Label2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 12.0
+offset_bottom = 9.0
+grow_horizontal = 2
+texture = ExtResource("3_k6k2v")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="Label2"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = -2.0
+offset_right = 39.0
+offset_bottom = 3.0
+texture = ExtResource("4_34kbr")
+expand_mode = 1
+stretch_mode = 2
+
+[connection signal="button_down" from="Backb" to="." method="_on_backb_button_down"]

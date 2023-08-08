@@ -1,0 +1,194 @@
+[gd_scene load_steps=11 format=3 uid="uid://dh0p6igjp5pn0"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_gk2gf"]
+[ext_resource type="Texture2D" uid="uid://d11t75xlkj031" path="res://assets/images/playerframe1.png" id="2_uwr25"]
+[ext_resource type="FontFile" uid="uid://bs7lguwppcjty" path="res://assets/smol.ttf" id="2_xb1j3"]
+[ext_resource type="Texture2D" uid="uid://durhrcdetsmuc" path="res://assets/images/glasses.png" id="3_54ond"]
+[ext_resource type="Texture2D" uid="uid://cnbs6lqmkf2qs" path="res://assets/images/question.png" id="3_f7dv8"]
+[ext_resource type="Texture2D" uid="uid://ca25hr1vfalfa" path="res://assets/images/shop.png" id="4_h02ib"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dphou"]
+line_spacing = 1.0
+font = ExtResource("2_xb1j3")
+font_size = 8
+font_color = Color(1, 0.913725, 0.25098, 1)
+outline_size = 2
+outline_color = Color(1, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(1, 0.282353, 0, 0.631373)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hprpu"]
+bg_color = Color(1, 0.74902, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0, 0, 1)
+corner_detail = 1
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_color = Color(1, 0.282353, 0, 0.631373)
+shadow_offset = Vector2(1, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yt0ra"]
+bg_color = Color(1, 0.929412, 0.709804, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0, 0, 1)
+corner_detail = 1
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_color = Color(1, 0.282353, 0, 0.631373)
+shadow_offset = Vector2(1, 1)
+anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_bbybe"]
+font = ExtResource("2_xb1j3")
+font_size = 4
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gk2gf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.337255, 0.337255, 0.721569, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 42.0
+offset_right = 64.0
+offset_bottom = 60.0
+text = "BENNY
+WILDFIRE"
+label_settings = SubResource("LabelSettings_dphou")
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -26.0
+offset_right = 30.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Playb" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_constants/h_separation = 2
+theme_override_fonts/font = ExtResource("2_xb1j3")
+theme_override_font_sizes/font_size = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_hprpu")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yt0ra")
+text = "PLAY"
+
+[node name="Settingsb" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_constants/h_separation = 2
+theme_override_fonts/font = ExtResource("2_xb1j3")
+theme_override_font_sizes/font_size = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_hprpu")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yt0ra")
+text = "SETTINGS"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Buttons"]
+layout_mode = 2
+alignment = 1
+
+[node name="TutorialB" type="Button" parent="Buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_constants/h_separation = 2
+theme_override_fonts/font = ExtResource("2_xb1j3")
+theme_override_font_sizes/font_size = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_hprpu")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yt0ra")
+icon = ExtResource("3_f7dv8")
+
+[node name="shopB" type="Button" parent="Buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_constants/h_separation = 2
+theme_override_fonts/font = ExtResource("2_xb1j3")
+theme_override_font_sizes/font_size = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_hprpu")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yt0ra")
+icon = ExtResource("4_h02ib")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 20.0
+offset_top = 30.0
+offset_right = 31.0
+offset_bottom = 41.0
+grow_horizontal = 2
+texture = ExtResource("2_uwr25")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 30.0
+offset_right = 69.0
+offset_bottom = 35.0
+texture = ExtResource("3_54ond")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 36.0
+offset_right = 74.0
+offset_bottom = 59.0
+text = "you->"
+label_settings = SubResource("LabelSettings_bbybe")
+
+[connection signal="button_down" from="Buttons/Playb" to="." method="_on_playb_button_down"]
+[connection signal="button_down" from="Buttons/Settingsb" to="." method="_on_settingsb_button_down"]
+[connection signal="button_down" from="Buttons/HBoxContainer/TutorialB" to="." method="_on_tutorial_b_button_down"]
+[connection signal="button_down" from="Buttons/HBoxContainer/shopB" to="." method="_on_shop_b_button_down"]
