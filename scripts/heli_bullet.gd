@@ -15,5 +15,5 @@ func _physics_process(_delta: float) -> void:
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body is Player:
-		body.health -= 250
+		body.health -= 300
 		queue_free()

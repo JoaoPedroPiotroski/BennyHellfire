@@ -22,6 +22,7 @@ shape = SubResource("RectangleShape2D_edks5")
 
 [node name="Alarm" type="Sprite2D" parent="."]
 visible = false
+modulate = Color(1, 1, 1, 0.5)
 position = Vector2(0, -64)
 texture = ExtResource("3_xhp10")
 centered = false

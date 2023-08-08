@@ -2,6 +2,7 @@ extends Control
 
 func _ready() -> void:
 	AudioManager.play_menu_music()
+	AudioManager._stop_boss_music()
 	$Buttons/Playb.grab_focus()
 
 func _on_playb_button_down() -> void:
